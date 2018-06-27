@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TODO</title>
+    <!-- Bootstrap4 CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+
+  </head>
+  <body>
+    <div id="app" class="container">
+      <h1>
+        My Todos
+        <span class="info">( {{remaining.length}}/{{todos.length}} )</span>
+         <button @click="purge" class="btn btn-primary ml-3">Purge</button>
+      </h1>
+
+      <ul>
+        <li v-for="(todo, index) in todos" class="list-unstyled">
+          <input type="checkbox" v-model="todo.isDone">
+          <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+          <span @click="deleteItem(index)" class="text-primary">[x]</span>
+        </li>
+        <li v-show="!todos.length">Nothing todo, Yay!</li>
+      </ul>
+      <form @submit.prevent="addItem">
+        <input type="text" v-model="newItem" class="col-6 form-control">
+        <input type="submit" value="Add" class="btn btn-primary mt-3">
+
+      </form>
+    </div>
+
+
+
+
+
+  </body>
+  <!-- Bootstrap4 CDN -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- Vue.js CDN -->
+  <!-- 開発バージョン、便利なコンソールの警告が含まれています -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 本番バージョン、サイズと速度のために最適化されています -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+  <script src="main.js"></script>
+
+</html>
