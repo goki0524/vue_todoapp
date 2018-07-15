@@ -1,10 +1,15 @@
 #app li > span.done {
   text-decoration: line-through;
-  color: #bbb;
+  color: red;
 }
 
 .info {
   color: #bbb;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: normal;
+}
+
+.date {
+	color: #bbb;
+	font-size: 14px;
 }
