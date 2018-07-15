@@ -9,9 +9,9 @@
   </head>
   <body>
     <div id="app" class="container">
-      <div class="card-deck mb-3 text-center pt-5">
+      <div class="card-deck mb-3 pt-5">
         <div class="card mb-4 box-shadow">
-          <div class="card-header">
+          <div class="card-header text-center">
             <h1 class="my-0 font-weight-normal">
               My Todos
               <span class="info">( {{remaining.length}}/{{todos.length}} )</span>
@@ -19,7 +19,7 @@
             </h1>
           </div>
           <div class="card-body">
-            <ul>
+            <ul class="ml-5 pt-3">
               <li v-for="(todo, index) in todos" class="list-unstyled h4">
                 <input type="checkbox" v-model="todo.isDone">
                 <span :class="{done: todo.isDone}">{{ todo.title }}</span>
@@ -29,7 +29,7 @@
             </ul>
             <form @submit.prevent="addItem">
               <input type="text" v-model="newItem" class="col-md-8 offset-md-2 mt-5 form-control">
-              <input type="submit" value="Add" class="btn btn-lg btn-primary mt-3">
+              <input type="submit" value="Add" class="btn btn-primary mt-3 col-md-8 offset-md-2">
             </form>
           </div>
         </div>
