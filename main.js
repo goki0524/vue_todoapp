@@ -29,7 +29,10 @@
           isDone: false,
           date: new Date().toLocaleString()
         };
+        if (this.newItem !== ''){
           this.todos.push(item);
+        }
+          // this.todos.push(item);
           this.newItem = ""; //inputフィールドを空に
         },
       deleteItem: function (index){
