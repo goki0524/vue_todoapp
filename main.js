@@ -1,12 +1,20 @@
 (function () {
   'use strict'
 
+  // modal component
+  Vue.component('modal', {
+  template: '#modal-template'
+  })
+
+  // app
   var vm = new Vue({
     el: '#app',
 
     data: {
       newItem: '',
-      todos:[]
+      todos:[], // todos[title, isDone, date]
+      showModal: false,
+      editId: 0
     },
 
     watch: {
@@ -32,8 +40,7 @@
         if (this.newItem !== ''){
           this.todos.push(item);
         }
-          // this.todos.push(item);
-          this.newItem = ""; //inputフィールドを空に
+        this.newItem = ""; //inputフィールドを空に
         },
       deleteItem: function (index){
         var title = this.todos[index].title;
@@ -46,6 +53,10 @@
           return;
         }
         this.todos = this.remaining;
+      },
+      editItem: function(index){
+        this.editId = index;
+        this.showModal = true;
       }
     },
 
@@ -56,8 +67,6 @@
         });
       }
     }
-
-
 
   });
 })();
