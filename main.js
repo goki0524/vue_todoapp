@@ -26,7 +26,8 @@
       addItem: function (){
         var item = {
           title: this.newItem,
-          isDone: false
+          isDone: false,
+          date: new Date().toLocaleString()
         };
           this.todos.push(item);
           this.newItem = ""; //inputフィールドを空に
